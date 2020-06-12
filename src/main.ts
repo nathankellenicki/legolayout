@@ -1,14 +1,13 @@
 import PoweredUP, { Consts, BaseHub, RemoteControl, HubLED, RemoteControlButton, Hub, ColorDistanceSensor } from "node-poweredup";
 import ControlLab from "node-controllab";
 import ControlLabSignal from "./controllabsignal";
-import Signal from "./signal";
 import ControlLabSwitch from "./controllabswitch";
 import PoweredUPTrain from "./powereduptrain";
 import ControlLabTrain from "./controllabtrain";
 import Train from "./train";
 
 const poweredUP = new PoweredUP();
-const controlLab = new ControlLab("/dev/tty.usbserial-AC018HBC");
+const controlLab = new ControlLab("/dev/ttyUSB0");
 
 (async () => {
 
@@ -16,8 +15,8 @@ const controlLab = new ControlLab("/dev/tty.usbserial-AC018HBC");
     await controlLab.connect();
     console.log("Connected to Control Lab");
 
-    const mainSignal = new ControlLabSignal(controlLab, "MainSignal", "C", "D");
-    const passingSignal = new ControlLabSignal(controlLab, "PassingSignal", "A", "B");
+    const mainSignal = new ControlLabSignal(controlLab, "MainSignal", "A", "B");
+    const passingSignal = new ControlLabSignal(controlLab, "PassingSignal", "C", "D");
     const mainSwitch = new ControlLabSwitch(controlLab, "MainSwitch", "E");
 
     let maerskTrain: PoweredUPTrain | undefined;

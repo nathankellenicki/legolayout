@@ -29,7 +29,7 @@ export default abstract class Train {
     }
 
     public stop () {
-        this._speed = 0;
+        this.go(0);
     }
 
 }
