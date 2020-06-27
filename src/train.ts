@@ -8,6 +8,10 @@ export default abstract class Train {
         this.name = name;
     }
 
+    public get isActive () {
+        return true;
+    }
+
     public get speed () {
         return this._speed;
     }
