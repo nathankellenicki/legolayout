@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tslint -c tslint.json \"./src/**/*.ts\" && tsc",
     "all": "npm run build",
-    "manual": "ts-node src/manual.ts"
+    "manual": "ts-node src/manual.ts",
+    "automation": "ts-node src/automation.ts",
+    "christmas": "ts-node src/christmas.ts"
   },
   "author": "Nathan Kellenicki <nathan@kellenicki.com>",
   "dependencies": {
