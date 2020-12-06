@@ -1,0 +1,13 @@
+[Unit]
+Description=Christmas Train Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/legolayout/legolayout
+ExecStart=/home/legolayout/.nvm/versions/node/v14.15.1/bin/npm run christmas-train
+Restart=on-failure
+User=legolayout
+Environment=PORT=3000
+
+[Install]
+WantedBy=multi-user.target
