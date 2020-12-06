@@ -8,7 +8,7 @@ Restart=on-failure
 User=legolayout
 Environment=NODE_VERSION=14
 Environment=PORT=3000
-ExecStart=/home/legolayout/.nvm/nvm-exec christmas-train
+ExecStart=/home/legolayout/.nvm/nvm-exec npm run christmas-train
 
 [Install]
 WantedBy=multi-user.target
