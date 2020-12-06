@@ -3,7 +3,6 @@ import express from "express";
 
 import WeDoMotionSensor from "./wedomotionsensor";
 import WeDoTrain from "./wedotrain";
-import { getHeapCodeStatistics } from "v8";
 
 const weDo = new WeDo();
 const app = express();
