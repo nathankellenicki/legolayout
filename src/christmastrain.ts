@@ -44,12 +44,12 @@ let wantStop = true;
     const startTrain = async () => {
         console.log("Starting Christmas Train");
         state = State.STARTING;
+        loop = 0;
         for (let i = 1; i <= 8; i++) {
             christmasTrain.go(i);
             await delay(500);
         }
         state = State.LOOPING;
-        loop = 0;
     };
 
     stationSensor.on("detected", async (sensorState: number) => {
