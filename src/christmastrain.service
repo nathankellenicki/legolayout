@@ -6,9 +6,9 @@ After=network.target
 WorkingDirectory=/home/legolayout/legolayout
 Restart=on-failure
 User=legolayout
-Environment=NODE_VERSION=14
+Environment="PATH=/home/legolayout/.nvm/versions/node/v14.15.1/bin"
 Environment=PORT=3000
-ExecStart=/home/legolayout/.nvm/nvm-exec npm run christmas-train
+ExecStart=npm run christmas-train
 
 [Install]
 WantedBy=multi-user.target
