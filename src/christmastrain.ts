@@ -55,7 +55,7 @@ let wantStop = true;
     stationSensor.on("detected", async (sensorState: number) => {
         console.log(`Sensor ${sensorState}`);
         if (sensorState === 0) {
-            if (state === State.LOOPING && loop === 2) {
+            if (state === State.LOOPING && loop >= 2) {
                 await stopTrain();
                 await delay(10000);
                 if (wantStop) {
@@ -75,6 +75,7 @@ let wantStop = true;
     app.get("/christmastrain/stop", (_, res) => {
         console.log("Received Christmas Train stop request");
         wantStop = true;
+        loop = 2;
         res.send("ok");
     });
     
