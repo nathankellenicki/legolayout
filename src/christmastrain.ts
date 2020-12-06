@@ -33,6 +33,7 @@ let wantStop = true;
 
     const stopTrain = async () => {
         console.log("Slowing Christmas Train");
+        await delay(500);
         state = State.SLOWING;
         for (let i = 7; i >= 0; i--) {
             christmasTrain.go(i);
