@@ -1,10 +1,13 @@
 import WeDo from "node-wedo";
+import ControlLab from "node-controllab";
 import express from "express";
 
 import WeDoMotionSensor from "./wedomotionsensor";
-import WeDoTrain from "./wedotrain";
+// import WeDoTrain from "./wedotrain";
+import ControlLabTrain from "./controllabtrain";
 
 const weDo = new WeDo();
+const controlLab = new ControlLab("/dev/tty.usbserial-AC018HBC");
 const app = express();
 
 const delay = (milliseconds = 500) => new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -27,8 +30,13 @@ let wantStop = true;
     await weDo.connect();
     console.log("WeDo connected");
 
+    console.log("Waiting for Control Lab");
+    await controlLab.connect();
+    console.log("Connected to Control Lab");
+
     const stationSensor = new WeDoMotionSensor(weDo, "StationSensor", "B", 180);
-    const christmasTrain = new WeDoTrain(weDo, "ChristmasTrain", "A");
+    // const christmasTrain = new WeDoTrain(weDo, "ChristmasTrain", "A");
+    const christmasTrain = new ControlLabTrain(controlLab, "ChristmasTrain", "A");
 
     const stopTrain = async () => {
         console.log("Slowing Christmas Train");
