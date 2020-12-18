@@ -7,7 +7,7 @@ import WeDoMotionSensor from "./wedomotionsensor";
 import ControlLabTrain from "./controllabtrain";
 
 const weDo = new WeDo();
-const controlLab = new ControlLab("/dev/tty.usbserial-AC018HBC");
+const controlLab = new ControlLab("/dev/ttyUSB0");
 const app = express();
 
 const delay = (milliseconds = 500) => new Promise((resolve) => setTimeout(resolve, milliseconds));
