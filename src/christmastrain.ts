@@ -41,7 +41,7 @@ let wantStop = true;
     const stopTrain = async () => {
         console.log("Slowing Christmas Train");
         state = State.SLOWING;
-        for (let i = 3; i >= 0; i--) {
+        for (let i = 4; i >= 0; i--) {
             christmasTrain.go(i);
             await delay(500);
         }
@@ -53,7 +53,7 @@ let wantStop = true;
         console.log("Starting Christmas Train");
         state = State.STARTING;
         loop = 0;
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 5; i++) {
             christmasTrain.go(i);
             await delay(500);
         }
@@ -64,6 +64,7 @@ let wantStop = true;
         console.log(`Sensor ${sensorState}`);
         if (sensorState === 0) {
             if (state === State.LOOPING && loop >= 2) {
+                await delay(500);
                 await stopTrain();
                 await delay(10000);
                 if (wantStop) {
