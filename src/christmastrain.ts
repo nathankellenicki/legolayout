@@ -64,6 +64,7 @@ let wantStop = true;
         console.log(`Sensor ${sensorState}`);
         if (sensorState === 0) {
             if (state === State.LOOPING && loop >= 2) {
+                await delay(100);
                 await stopTrain();
                 await delay(10000);
                 if (wantStop) {
